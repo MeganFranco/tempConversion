@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <script type="text/javascript">
+        function farToCel(userInput){
+            var enteredNumber = parseInt(userInput);
+            
+           if(Number.isNaN(enteredNumber)){
+             document.getElementById("result").style.color = "red"
+             document.getElementById("result").style.fontWeight = "800"
+             document.getElementById("result").innerHTML =  "Please enter a number"   
+             document.getElementById("userInput").value = ''
+                           
+           } else {
+              var convertedNumber = ((enteredNumber - 32) * 5) / 9
+            
+             document.getElementById("result").innerHTML =  " degrees Fahrenheit is " 
+             +  convertedNumber.toString().substring(0,5) + " in Celsius."           
+           } 
+        }
+        
+        function celToFar(userInput){
+            var enteredNumber = parseInt(userInput);
+            
+           if(Number.isNaN(enteredNumber)){
+             document.getElementById("result").style.color = "red"
+             document.getElementById("result").style.fontWeight = "800"
+             document.getElementById("result").innerHTML =  "Please enter a number" 
+             document.getElementById("userInput").value = ''              
+           } else { 
+           
+             var convertedNumber = ((enteredNumber  * 9 ) / 5 ) + 32    
+             
+              document.getElementById("result").innerHTML =  " degrees Celsius is " 
+             +  convertedNumber.toString().substring(0,5) + " in Fahrenheit."              
+           }
+        }
+        
+        function clearChanges() {
+            document.getElementById("result").innerHTML = " "
+            document.getElementById("userInput").value = ''
+        }    
+        
+    </script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="farenheitToCelsius.css">
+</head>
+<body>
+
+<div id="mainDiv">
+    <h1>Convert Fahrenheit and Celsius</h1>
+    
+    <input id="userInput" placeholder=" enter a number"></input> </br>
+    <button class="btn"
+    onclick="farToCel(document.getElementById('userInput').value)" value="submit">convert Fahrenheit to Celsius</button>
+    <button class="btn"
+    onclick="celToFar(document.getElementById('userInput').value)" value="submit">Convert Celsius to Fahrenheit</button>
+    
+    <div id="resultBlock">
+        <p id="result"> </p>
+    </div>
+    
+    <button class="btn"
+    onClick="clearChanges()">clear</button>
+</div>
+
+</body>
+</html>
